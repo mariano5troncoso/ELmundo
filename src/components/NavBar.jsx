@@ -3,10 +3,10 @@ import React from 'react';
 const navigation = [
   { name: 'Inicio', href: '/' },
   { name: 'Marcas', href: '/Marcas' },
-  { name: 'Sucursales', href: '#' },
+  { name: 'Sucursales', href: '/Sucursales' },
   { name: 'Eventos', href: '#' },
   { name: 'Tienda Online', href: '#' },
-  { name: 'Contactos', href: '#' },
+  { name: 'Contactos', href: '/Contactos' },
 ];
 
 export default function NavBar() {
