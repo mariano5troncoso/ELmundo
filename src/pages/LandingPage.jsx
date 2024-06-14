@@ -8,8 +8,10 @@ export default function Main() {
       
       <div className="flex flex-col justify-center items-center">
         <img src="/inicio.png" alt="Inicio" />
-        <img className="mt-4" src="/nuevasmarcas.png" alt="marcas" />
-        <img src="/Distribuidora.jpg" alt="Distribuidora" />
+        <img className="mt-4 hidden lg:block xl:hidden" src="/tablet.png" alt="marcas" />
+        <img className="mt-4 hidden xl:block" src="/nuevasmarcas.png" alt="marcas" />
+        <img className="mt-4 hidden lg:block xl:hidden" src="/mobile.png" alt="marcas" />
+        <img className="mt-4 hidden xl:block" src="/Distribuidora.jpg" alt="Distribuidora" />
       </div>
       
       <div className="flex items-center justify-evenly mt-5">
