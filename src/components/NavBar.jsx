@@ -5,7 +5,6 @@ const navigation = [
   { name: 'Marcas', href: '/Marcas' },
   { name: 'Sucursales', href: '/Sucursales' },
   { name: 'Eventos', href: '/Eventos' },
-  { name: 'Tienda Online', href: '#' },
   { name: 'Contactos', href: '/Contactos' },
 ];
 
@@ -13,7 +12,7 @@ export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="">
+    <div className="font-sans">
       <header className="fixed inset-x-0 top-0 z-50 bg-blue-950">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
