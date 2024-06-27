@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-const ExcelReader = () => {
+const ExcelReader = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -95,6 +95,7 @@ const ExcelReader = () => {
                                     <p className="text-sm text-gray-700">{product.MODELO}</p>
                                     <p className="text-sm text-gray-700">{product.MOTOR}</p>
                                     <p className="text-sm text-gray-700">{product.COMENTARIOS}</p>
+                                    <button onClick={() => addToCart(product)} className="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Añadir al carrito</button>
                                 </div>
                             </div>
                         ))
