@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Carrito = ({ cartItems, removeFromCart }) => {
-    const total = cartItems.reduce((acc, item) => acc + item.precio, 0);
+    const total = cartItems.reduce((acc, item) => acc + (item.precio || 0), 0);
 
     return (
-        <div className="fixed bottom-0 right-0 w-1/4 bg-white p-4 shadow-lg">
+        <div className="w-full bg-white p-4 shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Carrito de Compras</h2>
             {cartItems.length > 0 ? (
                 <ul>

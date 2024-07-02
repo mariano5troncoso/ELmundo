@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FiShoppingCart } from 'react-icons/fi';
+import Carrito from './Carrito';
+import Modal from 'react-modal';
 
 const navigation = [
   { name: 'Inicio', href: '/' },
@@ -8,8 +11,9 @@ const navigation = [
   { name: 'Contactos', href: '/Contactos' },
 ];
 
-export default function NavBar() {
+export default function NavBar({ cartItems = [], removeFromCart }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartModalOpen, setCartModalOpen] = useState(false);
 
   return (
     <div className="font-sans">
@@ -86,8 +90,32 @@ export default function NavBar() {
               </a>
             ))}
           </div>
+          <div className="flex items-center">
+            <button onClick={() => setCartModalOpen(true)} className="text-white">
+              <FiShoppingCart size={24} />
+              {cartItems.length > 0 && (
+                <span className="ml-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartItems.length}
+                </span>
+              )}
+            </button>
+          </div>
         </nav>
       </header>
+      <Modal
+        isOpen={cartModalOpen}
+        onRequestClose={() => setCartModalOpen(false)}
+        contentLabel="Carrito"
+        className="fixed inset-0 flex items-center justify-center p-4 bg-gray-900 bg-opacity-75"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+      >
+        <div className="bg-white p-4 rounded flex flex-col items-center max-w-lg w-full">
+          <button onClick={() => setCartModalOpen(false)} className="self-end bg-red-500 text-white px-2 py-1 rounded">
+            Cerrar
+          </button>
+          <Carrito cartItems={cartItems} removeFromCart={removeFromCart} />
+        </div>
+      </Modal>
     </div>
   );
 }
