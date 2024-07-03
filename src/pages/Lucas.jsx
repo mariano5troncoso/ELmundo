@@ -10,7 +10,7 @@ const Lucas = () => {
         <div>
             <NavBar cartItems={cartItems} removeFromCart={removeFromCart} />
             <div className="flex justify-center bg-blue-900 items-center mt-24">
-                <img className='' src="/dayco.png" alt="" />
+                <img className='' src="/lucas.png" alt="" />
             </div>
             <div><ExcelReader addToCart={addToCart} /></div>
         </div>
