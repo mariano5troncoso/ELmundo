@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../redux/CartContext';
 
-const Carrito = ({ cartItems, removeFromCart }) => {
-    const total = cartItems.reduce((acc, item) => acc + (item.precio || 0), 0);
+const Carrito = () => {
+    const { cartItems, removeFromCart, updateCartItemQuantity } = useContext(CartContext);
+    const total = cartItems.reduce((acc, item) => acc + (item.precio || 0) * item.quantity, 0);
 
     return (
         <div className="w-full bg-white p-4 shadow-lg">
@@ -10,10 +12,40 @@ const Carrito = ({ cartItems, removeFromCart }) => {
                 <ul>
                     {cartItems.map((item, index) => (
                         <li key={index} className="mb-2 flex justify-between items-center">
-                            <span>{item.CODIGO} - {item.MARCA} {item.MODELO}</span>
+                            <img src={item.IMAGEN} alt={item.MARCA} className="h-16 w-16 object-contain mr-4" />
+                            <div className="flex-grow">
+                                <span>{item.CODIGO} - {item.MARCA} {item.MODELO}</span>
+                                <div className="flex items-center mt-2">
+                                    <button
+                                        onClick={() => updateCartItemQuantity(index, item.quantity - 1)}
+                                        className="bg-red-500 text-white px-2 py-1 rounded"
+                                    >
+                                        -
+                                    </button>
+                                    <span className="mx-2">{item.quantity}</span>
+                                    <button
+                                        onClick={() => updateCartItemQuantity(index, item.quantity + 1)}
+                                        className="bg-green-500 text-white px-2 py-1 rounded"
+                                    >
+                                        +
+                                    </button>
+                                    <button
+                                        onClick={() => updateCartItemQuantity(index, item.quantity + 10)}
+                                        className="bg-blue-500 text-white px-2 py-1 rounded ml-2"
+                                    >
+                                        +10
+                                    </button>
+                                    <button
+                                        onClick={() => updateCartItemQuantity(index, item.quantity - 10)}
+                                        className="bg-orange-500 text-white px-2 py-1 rounded ml-2"
+                                    >
+                                        -10
+                                    </button>
+                                </div>
+                            </div>
                             <button
                                 onClick={() => removeFromCart(index)}
-                                className="bg-red-500 text-white px-2 py-1 rounded"
+                                className="bg-red-500 text-white px-2 py-1 rounded ml-4"
                             >
                                 Quitar
                             </button>
