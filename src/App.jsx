@@ -9,7 +9,9 @@ import Dayco from './pages/Dayco';
 import NavBar from './components/NavBar';
 import FiltroDayco from './components/FiltroDayco';
 import Main from './pages/LandingPage';
-import Carrito from './components/Carrito';
+
+import Applus from './pages/ApPlus';
+import CartPage from './pages/CartPage';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -58,6 +60,9 @@ const App = () => {
           <Route path='/Eventos' element={<Evento />} />
           <Route path='/Marcas/Dayco' element={<Dayco />} />
           <Route path='/FiltroDayco' element={<FiltroDayco addToCart={addToCart} />} />
+          <Route path='/Marcas/Applus' element={<Applus />} />
+          <Route path='/CartPage' element={<CartPage />} />
+
         </Routes>
         
       </BrowserRouter>
