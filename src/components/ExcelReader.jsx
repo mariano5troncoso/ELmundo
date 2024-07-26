@@ -51,7 +51,8 @@ const ExcelReader = ({ addToCart }) => {
         .filter(product => selectedCategories.length === 0 || selectedCategories.includes(product.COMPONENTE))
         .filter(product => 
             (typeof product.MARCA === 'string' && product.MARCA.toLowerCase().includes(searchQuery.toLowerCase())) ||
-            (typeof product.MODELO === 'string' && product.MODELO.toLowerCase().includes(searchQuery.toLowerCase()))
+            (typeof product.MODELO === 'string' && product.MODELO.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            (typeof product.CODIGO === 'string' && product.CODIGO.toLowerCase().includes(searchQuery.toLowerCase()))
         );
 
     const allCategories = [...new Set(products.map(product => product.COMPONENTE))];
