@@ -6,6 +6,7 @@ import Sucursal from '../pages/Sucursales';
 import Contacto from '../pages/Contactos';
 import Evento from '../pages/Eventos';
 import Dayco from '../pages/Dayco';
+import Applus from '../pages/ApPlus';
 
 
 const RouteComponents = () => {
@@ -19,6 +20,7 @@ const RouteComponents = () => {
                 <Route path='/Contactos' element={<Contacto />} />
                 <Route path='/Eventos' element={<Evento />} />
                 <Route path='/Marcas/Dayco' element={<Dayco />} />
+                <Route path='/Marcas/Applus' element={<Applus />} />
 
             </Routes>
         </BrowserRouter>
