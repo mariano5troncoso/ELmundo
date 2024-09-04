@@ -19,6 +19,14 @@ export default function Marcas() {
           <img src="/AP.png" alt="lucas" className="cursor-pointer" />
           <p className='text-white text-lg'>Catalogo</p>
         </Link>
+        <Link to="/Marcas/Dolz">
+          <img src="/dolz.png" alt="lucas" className="cursor-pointer" />
+          <p className='text-white text-lg'>Catalogo</p>
+        </Link>
+        <Link to="/Marcas/Fric-Rot">
+          <img src="/FricRot.png" alt="lucas" className="cursor-pointer" />
+          <p className='text-white text-lg'>Catalogo</p>
+        </Link>
       </div>
     </div>
   );

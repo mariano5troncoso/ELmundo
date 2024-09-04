@@ -3,11 +3,11 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Marcas', href: '/Marcas' },
-  { name: 'Sucursales', href: '/Sucursales' },
-  { name: 'Eventos', href: '/Eventos' },
-  { name: 'Contactos', href: '/Contactos' },
+  { name: 'INICIO', href: '/' },
+  { name: 'CATALOGO', href: '/Marcas' },
+  { name: 'SUCURSALES', href: '/Sucursales' },
+  { name: 'EVENTOS', href: '/Eventos' },
+  { name: 'CONTACTOS', href: '/Contactos' },
 ];
 
 export default function NavBar({ cartItems = [] }) {

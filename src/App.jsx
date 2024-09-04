@@ -9,9 +9,14 @@ import Dayco from './pages/Dayco';
 import NavBar from './components/NavBar';
 import FiltroDayco from './components/FiltroDayco';
 import Main from './pages/LandingPage';
+import GlobalCart from './components/GlobalCart';
+import Login from './components/Login';
 
 import Applus from './pages/ApPlus';
 import CartPage from './pages/CartPage';
+import Dolz from './pages/Dolz';
+import FricRot from './pages/FricRot';
+import Register from './components/Register';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -62,6 +67,11 @@ const App = () => {
           <Route path='/FiltroDayco' element={<FiltroDayco addToCart={addToCart} />} />
           <Route path='/Marcas/Applus' element={<Applus />} />
           <Route path='/CartPage' element={<CartPage />} />
+          <Route path='/Marcas/Dolz' element={<Dolz />} />
+          <Route path='/Marcas/Fric-Rot' element={<FricRot />} />
+          <Route path="/" element={<GlobalCart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
         </Routes>
         

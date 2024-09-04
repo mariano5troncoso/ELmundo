@@ -117,8 +117,13 @@ const CartPage = () => {
                         </div>
                     </div>
                 ) : (
-                    <p className="text-gray-500">The cart is empty.</p>
+                    <p className="text-gray-500 text-center">El carrito esta vacio</p>
+                    
                 )}
+                <div className='flex justify-center'>
+                <img src="/shopping-cart.svg" alt="shopping" className=" w-64 h-64" />
+                </div>
+                 
             </div>
         </div>
     );
