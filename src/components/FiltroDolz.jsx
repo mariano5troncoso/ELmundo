@@ -5,16 +5,15 @@ import Modal from 'react-modal';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
-const FiltroApplus = ({ addToCart }) => {
+const FiltroDolz = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalImage, setModalImage] = useState('');
-  const [modalProduct, setModalProduct] = useState(null);
 
   useEffect(() => {
-    fetch('/Applus.xlsx')
+    fetch('/Dolz.xlsx')
       .then(response => response.arrayBuffer())
       .then(data => {
         const workbook = XLSX.read(data, { type: 'array' });
@@ -38,16 +37,14 @@ const FiltroApplus = ({ addToCart }) => {
     );
   };
 
-  const openModal = product => {
-    setModalImage(product.IMAGEN);
-    setModalProduct(product);
+  const openModal = image => {
+    setModalImage(image);
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
     setModalIsOpen(false);
     setModalImage('');
-    setModalProduct(null);
   };
 
   const filteredProducts = products
@@ -90,7 +87,7 @@ const FiltroApplus = ({ addToCart }) => {
                   src={product.IMAGEN}
                   alt={`Imagen de ${product.MARCA} ${product.MODELO}`}
                   className="h-48 w-full object-contain cursor-pointer"
-                  onClick={() => openModal(product)}
+                  onClick={() => openModal(product.IMAGEN)}
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold">{product.CODIGO}</h3>
@@ -116,21 +113,13 @@ const FiltroApplus = ({ addToCart }) => {
       >
         <div className="bg-white p-4 rounded flex flex-col items-center" style={{ width: '500px', height: '500px' }}>
           <button onClick={closeModal} className="mb-4 bg-red-500 text-white px-4 py-2 rounded">Cerrar</button>
-          {modalProduct && (
-            <div className="text-center">
-              <Zoom>
-                <img src={modalImage} alt="Imagen ampliada" className="max-w-full max-h-full object-contain" />
-              </Zoom>
-              <p className="text-sm text-gray-700 mt-8"><strong>{modalProduct.MODELO} </strong> </p>
-              <p className="text-sm text-gray-700"><strong>Posición/Lado:</strong> {modalProduct.POSICION_LADO}</p>
-              <p className="text-sm text-gray-700"><strong>Dimensiones:</strong> {modalProduct.DIMENSIONES}</p>
-              <p className="text-sm text-gray-700"><strong>Equivalencias:</strong> {modalProduct.THOMPSON} - {modalProduct.NAKATA} - {modalProduct.MONROE} - {modalProduct.AXIOS} - {modalProduct.CORVEN} - {modalProduct.TIPER}</p>
-            </div>
-          )}
+          <Zoom>
+            <img src={modalImage} alt="Imagen ampliada" className="max-w-full max-h-full object-contain" />
+          </Zoom>
         </div>
       </Modal>
     </div>
   );
 };
 
-export default FiltroApplus;
+export default FiltroDolz;
